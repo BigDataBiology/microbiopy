@@ -1,4 +1,4 @@
-# NGLess_Analysis
+# NGLess-Analysis
 
 Analyses the output of [NGLess](https://ngless.embl.de/), a domain-specific language for NGS (next-generation sequencing data) processing.
 
