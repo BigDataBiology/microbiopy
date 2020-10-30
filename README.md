@@ -7,5 +7,5 @@ Analyses the output of [NGLess](https://ngless.embl.de/), a domain-specific lang
 Tests can be run using the following command:
 
 ```
-pytest NGLess_Analysis/tests/test_filter_features.py
+pytest NGLess-Analysis/tests/test_filter_features.py
 ```
