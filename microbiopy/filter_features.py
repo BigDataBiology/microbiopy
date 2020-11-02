@@ -1,6 +1,6 @@
 import os
 
-def filter_features(matrix, min_prevalence=0, min_prevalence_fraction=0, min_abundance=0, min_abundance_fraction=0):
+def filter_features(matrix, min_prevalence=0, min_prevalence_fraction=0.0, min_abundance=0, min_abundance_fraction=0.0):
 	count = 0
 	m = len(matrix)                                           	# number of rows
 	n = len(matrix[0])                                        	# number of columns
