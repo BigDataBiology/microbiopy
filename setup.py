@@ -1,18 +1,17 @@
-from os import path
-from setuptools import setup,find_packages
+from setuptools import setup
 
 
 try:
     long_description = open('README.md', encoding='utf-8').read()
-except:
+except Exception:
     long_description = open('README.md').read()
 
 
 setup(name='GMGC-mapper',
       version='0.1.0',
-      description='Filters features based on minimum prevalance and abundance.',
-      long_description = long_description,
-      long_description_content_type = 'text/markdown',
+      description='Filters features based on prevalance and abundance.',
+      long_description=long_description,
+      long_description_content_type='text/markdown',
       classifiers=[
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3.6',

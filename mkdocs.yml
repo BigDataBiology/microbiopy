@@ -1,0 +1,8 @@
+site_name: "Microbiopy"
+repo_url: "https://github.com/karmadolkar/microbiopy"
+
+nav:
+        - 'Microbiopy': index.md
+        - 'Install': install.md
+        - 'How To Use': usage.md
+        - 'Output' : output.md
