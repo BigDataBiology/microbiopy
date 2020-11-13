@@ -1,5 +1,7 @@
 # MICROBIOPY
 
+import numpy
+
 
 def filter_features(matrix, min_prevalence=0, min_prevalence_fraction=0.0,
                     min_abundance=0, min_abundance_fraction=0.0):
@@ -43,35 +45,30 @@ def filter_features(matrix, min_prevalence=0, min_prevalence_fraction=0.0,
                 if matrix[i][j]:
                     boolmatrix[i][j] = 1
 
+        csum = numpy.sum(boolmatrix, axis=0)                	# column-sum
+
         for j in range(n):
-            csum = 0                                           	# column-sum
-            for i in range(m):
-                csum += boolmatrix[i][j]
-            if min_prevalence and (csum >= min_prevalence):
+            if min_prevalence and (csum[j] >= min_prevalence):
                 for i in range(m):
                     resmatrix_p[i][j] = matrix[i][j]
             if (min_prevalence_fraction and
-               ((float(csum)/m) >= min_prevalence_fraction)):
+               ((float(csum[j])/m) >= min_prevalence_fraction)):
                 for i in range(m):
                     resmatrix_p_f[i][j] = matrix[i][j]
 
         return (resmatrix_p, resmatrix_p_f)
 
     elif count == 2:
-        total_sum = 0
-        for i in range(m):
-            for j in range(n):
-                total_sum += matrix[i][j]
+        total_sum = numpy.sum(matrix)
+
+        csum = numpy.sum(matrix, axis=0)                	# column-sum
 
         for j in range(n):
-            csum = 0                                           	# column-sum
-            for i in range(m):
-                csum += matrix[i][j]
-            if min_abundance and (csum >= min_abundance):
+            if min_abundance and (csum[j] >= min_abundance):
                 for i in range(m):
                     resmatrix_a[i][j] = matrix[i][j]
             if (min_abundance_fraction and
-               ((float(csum)/total_sum) >= min_abundance_fraction)):
+               ((float(csum[j])/total_sum) >= min_abundance_fraction)):
                 for i in range(m):
                     resmatrix_a_f[i][j] = matrix[i][j]
 
