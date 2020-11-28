@@ -1,4 +1,4 @@
-# Install
+# Dependencies
 
 The following packages are used:
 
