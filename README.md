@@ -1,6 +1,6 @@
 # Microbiopy
 
-Microbiopy is a tool that performs basic operations on sample input. Currently, it does the following:
+Microbiopy is a tool that performs operations on sample input. Currently, it does the following:
 
 1. [Filter Features](#Filter_Features): Filters features across samples based on minimum prevalence, minimum prevalence fraction, minimum average abundance, and minimum abundance fraction.
 
