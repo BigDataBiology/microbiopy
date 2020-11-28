@@ -1,78 +1,58 @@
 # MICROBIOPY
 
-import numpy
+
+import numpy as np
 
 
 def filter_features(matrix, min_prevalence=0, min_prevalence_fraction=0.0,
-                    min_abundance=0, min_abundance_fraction=0.0):
-    """Filters features across samples based on argument.
+                    min_average_abundance=0, min_abundance_fraction=0.0):
 
+    """Filters features across samples based on argument.
     Input
     -----
     Sample-by-feature matrix.
 
     Arguments
-    ---------
+    ---------python -m pip install flake8
     min_prevalence(int): the minimum prevalence.
     min_prevalence_fraction(float): the minimum prevalence fraction.
-    min_abundance(int): the minimum abundance.
+    min_average_abundance(float): the minimum abundance.
     min_abundance_fraction(float): the minimum abundance fraction.
 
     Output
     ------
-    A tuple having two matrices of all features that pass the filter
-    of minimum prevalence/abundance and minimum prevalence/abundance fraction.
+    A matrix of all features that pass the filter.
     """
 
-    count = 0
-    m = len(matrix)                                           	# rows
-    n = len(matrix[0])                                        	# columns
-    boolmatrix = [[0 for j in range(n)] for i in range(m)]    	# m * n matrix
-    resmatrix_p = [[0 for j in range(n)] for i in range(m)]   	# m * n matrix
-    resmatrix_p_f = [[0 for j in range(n)] for i in range(m)] 	# m * n matrix
-    resmatrix_a = [[0 for j in range(n)] for i in range(m)]   	# m * n matrix
-    resmatrix_a_f = [[0 for j in range(n)] for i in range(m)] 	# m * n matrix
+    matrix = np.asarray(matrix, dtype=np.float32)
 
-    if min_prevalence or min_prevalence_fraction:
-        count = 1
+    (m, n) = matrix.shape
 
-    if min_abundance or min_abundance_fraction:
-        count = 2
+    if min_prevalence_fraction:
+        min_prevalence = max(min_prevalence,
+                             np.ceil(min_prevalence_fraction * m))
 
-    if count == 1:
-        for i in range(m):
-            for j in range(n):
-                if matrix[i][j]:
-                    boolmatrix[i][j] = 1
+    keep = np.ones(n, bool)
 
-        csum = numpy.sum(boolmatrix, axis=0)                	# column-sum
+    if min_prevalence:
+        boolmatrix = (matrix > 0)
+        prev = np.sum(boolmatrix, axis=0)
+        keep &= (prev >= min_prevalence)
 
-        for j in range(n):
-            if min_prevalence and (csum[j] >= min_prevalence):
-                for i in range(m):
-                    resmatrix_p[i][j] = matrix[i][j]
-            if (min_prevalence_fraction and
-               ((float(csum[j])/m) >= min_prevalence_fraction)):
-                for i in range(m):
-                    resmatrix_p_f[i][j] = matrix[i][j]
+    if min_average_abundance or min_abundance_fraction:
+        csum = np.sum(matrix, axis=0)
 
-        return (resmatrix_p, resmatrix_p_f)
+        if min_average_abundance:
+            avg = csum/n
+            keep &= (avg >= min_average_abundance)
 
-    elif count == 2:
-        total_sum = numpy.sum(matrix)
+        if min_abundance_fraction:
+            total_sum = np.sum(matrix)
+            fraction = csum/total_sum
+            keep &= (fraction >= min_abundance_fraction)
+    """
+    matrix = np.where(keep[:, None], matrix, 0)
 
-        csum = numpy.sum(matrix, axis=0)                	# column-sum
-
-        for j in range(n):
-            if min_abundance and (csum[j] >= min_abundance):
-                for i in range(m):
-                    resmatrix_a[i][j] = matrix[i][j]
-            if (min_abundance_fraction and
-               ((float(csum[j])/total_sum) >= min_abundance_fraction)):
-                for i in range(m):
-                    resmatrix_a_f[i][j] = matrix[i][j]
-
-        return (resmatrix_a, resmatrix_a_f)
-
-    else:
-        print("Neither prevalence nor abundance given.")
+    matrix = matrix[:, keep]
+    """
+    return matrix*keep
