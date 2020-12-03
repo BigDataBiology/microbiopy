@@ -14,7 +14,7 @@ res = do_pca(matrix)
 
 ### Output
 
-PCA output, dimensionally reduced by one.
+PCA output, dimensionally reduced to two. Use plot_pca(matrix) to see PCA results of matrix.
 
 ### Running tests
 
