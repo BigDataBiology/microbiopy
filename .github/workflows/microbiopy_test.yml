@@ -22,6 +22,7 @@ jobs:
         pip install numpy
         pip install pytest
         pip install flake8
+        pip install matplotlib
     - name: Test with pytest
       run: |
         pytest ./tests/test_filter_features.py
