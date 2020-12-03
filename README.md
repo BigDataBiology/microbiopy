@@ -4,7 +4,7 @@ Microbiopy is a tool that performs operations on sample input. Currently, it doe
 
 1. [Filter Features](#Filter_Features): Filters features across samples based on minimum prevalence, minimum prevalence fraction, minimum average abundance, and minimum abundance fraction.
 
-2. [Principal Component Analysis](#Principal_Component_Analysis): Performs principal component analysis on the data after executing a log transform on it. Reduces dimensionality of input data by 1 and gives the relevant relationship.
+2. [Principal Component Analysis](#Principal_Component_Analysis): Performs principal component analysis on the data after executing a log transform on it. Reduces dimensionality of input data to 2 and gives the relevant relationshp via a Second PC versus First PC plot.
 
 ## Filter_Features
 ### Input
@@ -43,7 +43,7 @@ res = do_pca(matrix)
 
 ### Output
 
-PCA output, dimensionally reduced by one.
+PCA output with respect to two components. Use plot_pca(matrix) to plot PCA results of matrix.
 
 ### Running tests
 
