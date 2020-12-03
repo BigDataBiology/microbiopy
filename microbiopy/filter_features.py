@@ -50,9 +50,5 @@ def filter_features(matrix, min_prevalence=0, min_prevalence_fraction=0.0,
             total_sum = np.sum(matrix)
             fraction = csum/total_sum
             keep &= (fraction >= min_abundance_fraction)
-    """
-    matrix = np.where(keep[:, None], matrix, 0)
 
-    matrix = matrix[:, keep]
-    """
     return matrix*keep
