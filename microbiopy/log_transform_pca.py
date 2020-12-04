@@ -29,6 +29,9 @@ def do_pca(matrix):
 
 
 def generate_pca(matrix):
+    """
+    Generates plot for PCA results.
+    """
     y = np.arange(len(matrix))
     matrix = np.asarray(matrix)
     X_reduced = do_pca(matrix)
