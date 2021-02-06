@@ -26,4 +26,5 @@ jobs:
     - name: Test with pytest
       run: |
         pytest ./tests/test_filter_features.py
+        pytest ./tests/test_log_transform_pca.py
         flake8 .
