@@ -13,7 +13,7 @@ def filter_features(matrix, min_prevalence=0, min_prevalence_fraction=0.0,
     Sample-by-feature matrix.
 
     Arguments
-    ---------python -m pip install flake8
+    ---------
     min_prevalence(int): the minimum prevalence.
     min_prevalence_fraction(float): the minimum prevalence fraction.
     min_average_abundance(float): the minimum abundance.
