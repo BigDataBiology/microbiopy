@@ -14,7 +14,7 @@ res = filter_features(matrix, min_prevalence=2, min_prevalence_fraction=0.8)
 
 ### Output
 
-A tuple of two m * n matrices (based on absolute and fractional filters) containing only those features that pass the filters.
+Final numpy array filtered out using prevalence and abundance values (in that order).
 
 ### Running tests
 

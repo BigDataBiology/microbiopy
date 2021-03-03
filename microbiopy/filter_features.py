@@ -7,7 +7,8 @@ import numpy as np
 def filter_features(matrix, min_prevalence=0, min_prevalence_fraction=0.0,
                     min_average_abundance=0, min_abundance_fraction=0.0):
 
-    """Filters features across samples based on argument.
+    """
+    Filters features across samples based on argument.
     Input
     -----
     Sample-by-feature matrix.

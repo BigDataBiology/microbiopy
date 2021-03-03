@@ -20,11 +20,18 @@ PCA output, dimensionally reduced to two.
 
 ### PCA Plots
 
-Use this command to see PCA results of matrix:
+Use generate_pca method (with relevant arguments described below) to see PCA results of matrix:
 
-```
-implement_generate_pca()
-```
+**Arguments:**
+- matrix: Abundance/prevalence values matrix
+- i: Number of columns in matrix
+- meta: Metadata file
+- marker_attribute: Attribute used to define markers in plot
+- marker_value1: First value of marker attribute
+- marker_value2: Second value of marker attribute
+- join_on: Common column to join matrix and meta on
+
+For more information, view the [microbiopy demonstration](https://github.com/BigDataBiology/microbiopy_demo)
 
 
 ### Running tests

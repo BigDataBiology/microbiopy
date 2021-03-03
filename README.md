@@ -19,7 +19,7 @@ res = filter_features(matrix, min_prevalence=2, min_prevalence_fraction=0.8)
 
 ### Output
 
-A tuple of two m * n matrices (based on absolute and fractional filters) containing only those features that pass the filters.
+Final numpy array filtered out using prevalence and abundance values (in that order).
 
 ### Running tests
 
@@ -43,7 +43,21 @@ res = do_pca(matrix)
 
 ### Output
 
-PCA output with respect to two components. Use plot_pca(matrix) to plot PCA results of matrix.
+PCA output, dimensionally reduced to two. 
+
+
+### PCA Plots
+
+Use generate_pca method (with relevant arguments described below) to see PCA results of matrix:
+
+**Arguments:**
+- matrix: Abundance/prevalence values matrix
+- i: Number of columns in matrix
+- meta: Metadata file
+- marker_attribute: Attribute used to define markers in plot
+- marker_value1: First value of marker attribute
+- marker_value2: Second value of marker attribute
+- join_on: Common column to join matrix and meta on
 
 ### Running tests
 
@@ -52,3 +66,7 @@ Tests can be run using the following command:
 ```
 pytest tests/test_log_transform_pca.py
 ```
+
+# Demonstration
+
+View the [microbiopy demonstration](https://github.com/BigDataBiology/microbiopy_demo).
