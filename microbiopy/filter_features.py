@@ -9,20 +9,14 @@ def filter_features(matrix, min_prevalence=0, min_prevalence_fraction=0.0,
 
     """
     Filters features across samples based on argument.
-    Input
-    -----
-    Sample-by-feature matrix.
 
     Arguments
     ---------
+    matrix: input sample-by-feature matrix
     min_prevalence(int): the minimum prevalence.
     min_prevalence_fraction(float): the minimum prevalence fraction.
     min_average_abundance(float): the minimum abundance.
     min_abundance_fraction(float): the minimum abundance fraction.
-
-    Output
-    ------
-    A matrix of all features that pass the filter.
     """
 
     matrix = np.asarray(matrix, dtype=np.float32)

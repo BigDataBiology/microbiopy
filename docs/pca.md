@@ -24,7 +24,7 @@ Use generate_pca method (with relevant arguments described below) to see PCA res
 
 **Arguments:**
 - matrix: Abundance/prevalence values matrix
-- i: Number of columns in matrix
+- i: Column labels in matrix
 - meta: Metadata file
 - marker_attribute: Attribute used to define markers in plot
 - marker_value1: First value of marker attribute

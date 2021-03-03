@@ -36,7 +36,8 @@ def generate_pca(matrix, i, meta, marker_attribute, marker_value1,
     Arguments:
     ----------
     matrix: Abundance/prevalence values matrix
-    i: Number of columns in matrix
+    i: Column labels in matrix (see demo for more info
+       at https://github.com/BigDataBiology/microbiopy_demo)
     meta: Metadata file
     marker_attribute: Attribute used to define markers in plot
     marker_value1: First value of marker attribute
