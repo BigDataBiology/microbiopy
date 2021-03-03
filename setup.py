@@ -7,7 +7,7 @@ except Exception:
     long_description = open('README.md').read()
 
 
-setup(name='GMGC-mapper',
+setup(name='microbiopy',
       version='0.1.0',
       description='Filters features based on prevalance and abundance.',
       long_description=long_description,
@@ -25,7 +25,12 @@ setup(name='GMGC-mapper',
       install_requires=[
           # Technically, numpy is not directly needed, but some downstream
           # dependencies use it and fail to declare they need it:
-          'pytest'
+          'pytest',
+          'numpy',
+          'flake8',
+          'matplotlib',
+          'sklearn',
+          'pandas'
       ],
       package_data={
              'microbiopy': ['*.md']},

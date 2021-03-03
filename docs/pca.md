@@ -1,6 +1,7 @@
 # Principal Component Analysis
 
-Performs principal component analysis on the data after executing a log transform on it. Reduces dimensionality of input data by 1 and gives the relevant relationship.
+Performs principal component analysis on the data after executing a log transform on it.
+
 
 ### Input
 
@@ -14,7 +15,17 @@ res = do_pca(matrix)
 
 ### Output
 
-PCA output, dimensionally reduced to two. Use plot_pca(matrix) to see PCA results of matrix.
+PCA output, dimensionally reduced to two. 
+
+
+### PCA Plots
+
+Use this command to see PCA results of matrix:
+
+```
+implement_generate_pca()
+```
+
 
 ### Running tests
 

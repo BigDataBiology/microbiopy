@@ -6,3 +6,5 @@ The following packages are used:
 - pytest
 - flake8
 - matplotlib
+- sklearn
+- pandas
