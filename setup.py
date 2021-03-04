@@ -9,7 +9,7 @@ except Exception:
 
 setup(name='microbiopy',
       version='0.1.0',
-      description='Filters features based on prevalance and abundance.',
+      description='Performs analysis on microbiome count data',
       long_description=long_description,
       long_description_content_type='text/markdown',
       classifiers=[
