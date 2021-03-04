@@ -1,5 +1,5 @@
 site_name: "Microbiopy"
-repo_url: "https://github.com/karmadolkar/microbiopy"
+repo_url: "https://github.com/BigDataBiology/microbiopy"
 
 nav:
     - 'About': index.md
